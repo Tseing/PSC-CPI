@@ -1,0 +1,5 @@
+[project]
+name = "psc-cpi"
+
+[tool.black]
+line-length = 100
