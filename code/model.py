@@ -1,6 +1,5 @@
 import torch
 import torch.nn as nn
-import torch.nn.functional as F
 
 import numpy as np
 
@@ -298,7 +297,7 @@ class net_prot_gat(nn.Module):
             x = self.relu(self.linear0[l](x))
             x = self.relu(self.linear1[l](x))
 
-            x += x0
+            x = x + x0
 
         x = self.linear_final(x)
         return x
@@ -324,7 +323,7 @@ class net_prot_gcn(nn.Module):
             x = torch.einsum('bij,bjd->bid', adj_norm, x)
             x = self.relu(self.linear[l](x))
 
-            x += x0
+            x = x + x0
 
         x = self.linear_final(x)
         return x
@@ -351,7 +350,7 @@ class net_prot_sage(nn.Module):
             x = torch.cat([neigh_x, x], dim=-1)
             x = self.relu(self.linear[l](x))
 
-            x += x0
+            x = x + x0
 
         x = self.linear_final(x)
         return x
