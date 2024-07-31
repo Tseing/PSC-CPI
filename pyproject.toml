@@ -1,5 +1,21 @@
 [project]
-name = "psc-cpi"
+name = "PSC-CPI"
+version = "0.1.0"
+description = "Default template for PDM package"
+authors = [
+    {name = "Tseing", email = "im.yczeng@foxmail.com"},
+]
+dependencies = [
+    "scipy>=1.13.1",
+    "nni>=3.0",
+    "scikit-learn>=1.5.1",
+    "numpy==1.26.3",
+]
+requires-python = "==3.9.*"
+readme = "README.md"
+license = {text = "MIT"}
 
 [tool.black]
 line-length = 100
+[tool.pdm]
+distribution = false
